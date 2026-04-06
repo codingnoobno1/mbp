@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { MobileNav } from "@/components/layout/mobile-nav";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -36,10 +37,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="flex-grow pt-20">
+          <main className="flex-grow pt-20 pb-20 md:pb-0">
             {children}
           </main>
           <Footer />
+          <MobileNav />
         </ThemeProvider>
       </body>
     </html>
