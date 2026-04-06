@@ -158,12 +158,30 @@ export default function Home() {
           </p>
         </motion.div>
 
+        <div className="md:hidden flex overflow-x-auto pb-8 gap-6 snap-x snap-mandatory hide-scrollbar">
+          {strengths.map((item, i) => (
+            <div key={i} className="min-w-[85vw] snap-center">
+              <Card className="h-full border-none shadow-xl bg-card/50 backdrop-blur-sm overflow-hidden">
+                <CardContent className="p-8 flex flex-col gap-6">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <h4 className="font-bold text-xl">{item.title}</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+
         <motion.div 
           variants={staggerContainer}
           initial="initial"
           whileInView="whileInView"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {strengths.map((item, i) => (
             <motion.div key={i} variants={fadeIn}>
@@ -248,31 +266,55 @@ export default function Home() {
         </motion.div>
 
         <div className="relative">
-          {/* Connector Line */}
-          <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/20 to-transparent hidden lg:block -translate-y-1/2" />
-          
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
+          {/* Mobile Accordions */}
+          <div className="flex flex-col gap-4 md:hidden">
             {processSteps.map((step, i) => (
-              <motion.div key={i} variants={fadeIn} className="flex flex-col items-center text-center gap-6 relative">
-                <div className="w-20 h-20 rounded-2xl bg-background border-2 border-primary/20 shadow-lg flex items-center justify-center group hover:border-primary transition-colors relative z-10">
-                  <step.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
-                  <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold flex items-center justify-center">
-                    0{i+1}
+              <details key={i} className="group bg-card border rounded-2xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer select-none">
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                      <step.icon className="w-5 h-5" />
+                    </div>
+                    <h4 className="font-bold text-lg">{step.title}</h4>
                   </div>
+                  <span className="shrink-0 transition duration-300 group-open:-rotate-180">
+                    <ArrowRight className="w-5 h-5 rotate-90" />
+                  </span>
+                </summary>
+                <div className="px-6 pb-6 text-muted-foreground text-sm leading-relaxed border-t pt-4">
+                  {step.description}
                 </div>
-                <div className="flex flex-col gap-2">
-                  <h4 className="font-bold text-xl">{step.title}</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
-                </div>
-              </motion.div>
+              </details>
             ))}
-          </motion.div>
+          </div>
+
+          {/* Desktop Stepper */}
+          <div className="hidden md:block">
+            <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-y-1/2" />
+            
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="whileInView"
+              viewport={{ once: true }}
+              className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+            >
+              {processSteps.map((step, i) => (
+                <motion.div key={i} variants={fadeIn} className="flex flex-col items-center text-center gap-6 relative">
+                  <div className="w-20 h-20 rounded-2xl bg-background border-2 border-primary/20 shadow-lg flex items-center justify-center group hover:border-primary transition-colors relative z-10">
+                    <step.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
+                    <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold flex items-center justify-center">
+                      0{i+1}
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <h4 className="font-bold text-xl">{step.title}</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
