@@ -117,7 +117,7 @@ export default function SuccessStories() {
             animate={{ opacity: 1, scale: 1 }}
             className="text-4xl md:text-7xl font-bold tracking-tight mb-6"
           >
-            Success <span className="text-zinc-900/50 italic">Stories</span>
+            Success <span className="text-sky-300 italic">Stories</span>
           </motion.h1>
           <p className="text-primary-foreground/70 text-xl max-w-2xl mx-auto leading-relaxed">
             From specialized refinery installations to global power plant integrations, explore how MBPE delivers industrial excellence.

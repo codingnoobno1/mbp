@@ -110,6 +110,15 @@ export default function Products() {
           <h3 className="text-3xl md:text-5xl font-bold">Industrial Product Line</h3>
         </motion.div>
 
+        {/* Mobile Category Scroll */}
+        <div className="md:hidden flex overflow-x-auto pb-8 gap-4 snap-x snap-mandatory hide-scrollbar mb-12">
+          {["All Products", "Boilers", "Vessels", "Exchangers", "Custom Solutions"].map((cat, i) => (
+            <Badge key={i} variant={i === 0 ? "default" : "outline"} className="snap-center whitespace-nowrap px-6 py-2 rounded-full text-sm">
+              {cat}
+            </Badge>
+          ))}
+        </div>
+
         <div className="flex flex-col gap-12 lg:gap-32">
           {products.map((product, i) => (
             <motion.div 

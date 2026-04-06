@@ -69,7 +69,7 @@ export default function Safety() {
               animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-6xl font-bold tracking-tight"
             >
-              Safety, <span className="text-primary italic">Quality</span> & Compliance
+              Safety, <span className="text-blue-400 italic">Quality</span> & Compliance
             </motion.h1>
             <p className="text-gray-400 text-xl leading-relaxed">
               At MBPE, safety isn't just a policy—it's the core of our engineering philosophy. We maintain the highest industrial standards across all manufacturing processes.
@@ -171,11 +171,11 @@ export default function Safety() {
                       <p className="text-muted-foreground text-sm line-clamp-2">{doc.description}</p>
                     </div>
                   </div>
-                  <div className="p-4 bg-background border-t flex items-center justify-between">
-                    <Button variant="ghost" size="sm" className="font-bold text-xs" onClick={() => setSelectedDoc(doc.url)}>
+                  <div className="p-4 bg-background border-t flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <Button variant="ghost" size="sm" className="font-bold text-xs w-full sm:w-auto h-12 sm:h-9" onClick={() => setSelectedDoc(doc.url)}>
                       <Search className="w-3 h-3 mr-2" /> Preview
                     </Button>
-                    <Button variant="outline" size="sm" className="font-bold text-xs" asChild>
+                    <Button variant="outline" size="sm" className="font-bold text-xs w-full sm:w-auto h-12 sm:h-9" asChild>
                       <a href={doc.url} download>
                         <Download className="w-3 h-3 mr-2" /> Download
                       </a>
