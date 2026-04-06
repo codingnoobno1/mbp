@@ -1,8 +1,9 @@
 "use client"
 
+import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { 
   Factory, 
   ShieldCheck, 
@@ -15,7 +16,9 @@ import {
   ClipboardCheck,
   TrendingUp,
   FileText,
-  Construction
+  Construction,
+  Maximize2,
+  X
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -77,6 +80,8 @@ const staggerContainer = {
 }
 
 export default function Home() {
+  const [isZoomed, setIsZoomed] = React.useState(false)
+
   return (
     <div className="flex flex-col gap-24 pb-24 overflow-hidden">
       {/* Hero Section */}
@@ -240,7 +245,8 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative h-[500px] rounded-2xl overflow-hidden group shadow-2xl shadow-primary/20"
+            className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden group shadow-2xl shadow-primary/20 cursor-zoom-in"
+            onClick={() => setIsZoomed(true)}
           >
             <Image 
               src="/organisation.jpg" 
@@ -248,11 +254,46 @@ export default function Home() {
               fill 
               className="object-contain bg-white p-4 group-hover:scale-105 transition-transform duration-700" 
             />
-            <div className="absolute bottom-4 right-4 bg-primary px-4 py-2 rounded-lg font-bold text-sm shadow-xl">
-              Organization Structure
+            <div className="absolute bottom-4 right-4 bg-primary px-4 py-2 rounded-lg font-bold text-sm shadow-xl flex items-center gap-2">
+              <Maximize2 className="w-4 h-4" /> Tap to Zoom
             </div>
           </motion.div>
         </div>
+
+        {/* Zoom Lightbox */}
+        <AnimatePresence>
+          {isZoomed && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12"
+              onClick={() => setIsZoomed(false)}
+            >
+              <motion.div 
+                initial={{ scale: 0.9, y: 20 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.9, y: 20 }}
+                className="relative w-full h-full flex items-center justify-center"
+              >
+                <div className="relative w-full h-full max-w-5xl max-h-[90vh]">
+                  <Image 
+                    src="/organisation.jpg" 
+                    alt="Organization Chart Zoomed" 
+                    fill 
+                    className="object-contain" 
+                  />
+                </div>
+                <button 
+                  onClick={() => setIsZoomed(false)}
+                  className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                >
+                  <X className="w-8 h-8" />
+                </button>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
 
       {/* Working System Section */}

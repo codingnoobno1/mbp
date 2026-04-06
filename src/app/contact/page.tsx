@@ -110,7 +110,11 @@ export default function Contact() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-semibold">Email Address</label>
-                  <Input type="email" placeholder="john@example.com" className="rounded-xl h-12" />
+                  <Input type="email" inputMode="email" placeholder="john@example.com" className="rounded-xl h-14 md:h-12" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold">Phone Number</label>
+                  <Input type="tel" inputMode="tel" placeholder="+91 90000 00000" className="rounded-xl h-14 md:h-12" />
                 </div>
                 <div className="space-y-2 md:col-span-2">
                   <label className="text-sm font-semibold">Subject</label>
@@ -171,15 +175,26 @@ export default function Contact() {
             </h4>
             <p className="text-xs text-muted-foreground mt-1">Industrial Area, Ambala, Haryana</p>
           </div>
+          
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 md:hidden">
+            <Button size="lg" className="rounded-full shadow-2xl px-10 h-14 font-bold" asChild>
+              <a href="https://maps.google.com/?q=Modern+Boilers+Industrial+Area+Ambala+Haryana" target="_blank">
+                <MapPin className="mr-2 w-5 h-5" /> Open in Google Maps
+              </a>
+            </Button>
+          </div>
+
           <iframe
             title="MBPE Location"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.4357288764835!2d76.84066!3d30.34795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fb630d0716d05%3A0x239e0eb770777352!2sIndustrial%20Area%2C%20Ambala%2C%20Haryana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
             width="100%"
             height="500"
             style={{ border: "0" }}
+            className="hidden md:block"
             allowFullScreen
             loading="lazy"
           ></iframe>
+          <div className="h-64 w-full bg-zinc-100 md:hidden" />
         </motion.div>
       </section>
     </div>

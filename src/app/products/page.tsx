@@ -16,25 +16,50 @@ import {
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 
 const products = [
   { 
     name: "Industrial Boilers", 
     image: "https://www.rasmech.com/wp-content/uploads/2020/11/D-Style-5.jpg", 
     description: "High-efficiency, custom-engineered steam boilers designed for maximum thermal performance and durability in heavy industrial applications.",
-    features: ["ASME Certified", "Multi-Fuel Support", "Low NOx Emissions"]
+    features: ["ASME Certified", "Multi-Fuel Support", "Low NOx Emissions"],
+    specs: {
+      capacity: "100 - 3000 kg/hr",
+      pressure: "Up to 32 kg/cm²",
+      temp: "Up to 450°C",
+      compliance: "IBR / non-IBR"
+    }
   },
   { 
     name: "Pressure Vessels", 
     image: "https://th.bing.com/th/id/R.5628bdac05ec5553222b488df7a97a44?rik=GaRSxsH5qMfH%2fA&riu=http%3a%2f%2fwww.titanmf.com%2fwp-content%2fuploads%2f2014%2f03%2fZirconium-702-Pressure-Vessel-001.jpg&ehk=q4zMakWLCSypSnX4tECj%2b7G14erL8VIJP02Xnxld%2bYE%3d&risl=&pid=ImgRaw&r=0", 
     description: "Precision-manufactured pressure vessels for safe storage and processing of high-pressure fluids and gases across various industries.",
-    features: ["Corrosion Resistant", "Precision Welding", "Safety Inspected"]
+    features: ["Corrosion Resistant", "Precision Welding", "Safety Inspected"],
+    specs: {
+      diameter: "Up to 4000mm",
+      thickness: "Up to 60mm",
+      standard: "ASME Sec VIII Div 1",
+      material: "SS, MS, Alloys"
+    }
   },
   { 
     name: "Heat Exchangers", 
     image: "https://savree-storage.s3.amazonaws.com/Articles/optimised/heat-exchanger-course-image-min.jpg", 
     description: "Advanced shell and tube heat exchangers engineered for optimal energy transfer and thermal efficiency in extreme environments.",
-    features: ["Optimal Heat Transfer", "Easy Maintenance", "Custom Materials"]
+    features: ["Optimal Heat Transfer", "Easy Maintenance", "Custom Materials"],
+    specs: {
+      type: "Shell & Tube / Plate",
+      pass: "1, 2, 4 Pass",
+      area: "Up to 1000 m²",
+      seal: "High Pressure Gaskets"
+    }
   }
 ]
 
@@ -152,9 +177,50 @@ export default function Products() {
                     </div>
                   ))}
                 </div>
-                <Button className="mt-4 rounded-xl w-fit px-8 h-12 text-md font-bold" asChild>
-                  <Link href="/contact">Request Technical Specs</Link>
-                </Button>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  <Sheet>
+                    <SheetTrigger render={
+                      <Button variant="outline" className="rounded-xl px-6 font-bold md:hidden">
+                        View Technical Details
+                      </Button>
+                    } />
+                    <SheetContent side="bottom" className="h-[80vh] rounded-t-[2.5rem]">
+                      <SheetHeader className="pb-8">
+                        <SheetTitle className="text-2xl font-bold">{product.name} Specs</SheetTitle>
+                      </SheetHeader>
+                      <div className="grid grid-cols-1 gap-6">
+                        <div className="relative h-48 rounded-2xl overflow-hidden">
+                          <Image src={product.image} alt={product.name} fill className="object-cover" />
+                        </div>
+                        <div className="space-y-4">
+                          <h5 className="font-bold text-lg border-b pb-2">Technical Parameters</h5>
+                          <div className="grid grid-cols-2 gap-4">
+                            {Object.entries(product.specs).map(([key, val]) => (
+                              <div key={key} className="bg-muted p-3 rounded-xl">
+                                <span className="text-[10px] uppercase text-muted-foreground block font-bold mb-1">{key}</span>
+                                <span className="text-sm font-bold">{val as string}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="space-y-4">
+                          <h5 className="font-bold text-lg border-b pb-2">Key Features</h5>
+                          <div className="flex flex-wrap gap-2">
+                            {product.features.map((f, i) => (
+                              <Badge key={i} variant="secondary" className="px-3 py-1">{f}</Badge>
+                            ))}
+                          </div>
+                        </div>
+                        <Button className="w-full py-6 rounded-xl font-bold text-lg" asChild>
+                          <Link href="/contact">Request Official Quotation</Link>
+                        </Button>
+                      </div>
+                    </SheetContent>
+                  </Sheet>
+                  <Button className="rounded-xl px-8 h-12 text-md font-bold" asChild>
+                    <Link href="/contact">Request Technical Specs</Link>
+                  </Button>
+                </div>
               </div>
             </motion.div>
           ))}

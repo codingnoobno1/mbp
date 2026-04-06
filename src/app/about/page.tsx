@@ -144,20 +144,24 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.2 }}
             >
-              <Card className="overflow-hidden border-none shadow-2xl relative group">
+              <Card className="overflow-hidden border-none shadow-2xl relative group bg-card">
                 <CardContent className="p-0">
-                  <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
-                    <div className="md:col-span-2 relative h-64 md:h-full">
+                  <div className="flex flex-col md:grid md:grid-cols-5 gap-0">
+                    <div className="relative h-72 md:h-full md:col-span-2">
                       <Image 
                         src={founder.image} 
                         alt={founder.name} 
                         fill 
                         className="object-cover transition-transform duration-700 group-hover:scale-110" 
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:hidden" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent md:hidden" />
+                      <div className="absolute bottom-4 left-6 md:hidden">
+                        <h4 className="text-2xl font-bold text-white">{founder.name}</h4>
+                        <span className="text-primary-foreground font-semibold text-xs uppercase tracking-widest">{founder.role}</span>
+                      </div>
                     </div>
                     <div className="md:col-span-3 p-8 flex flex-col gap-4">
-                      <div className="flex flex-col">
+                      <div className="hidden md:flex flex-col">
                         <h4 className="text-2xl font-bold">{founder.name}</h4>
                         <span className="text-primary font-semibold text-sm uppercase tracking-wider">{founder.role}</span>
                       </div>
