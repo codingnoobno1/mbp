@@ -33,7 +33,7 @@ export function Footer() {
         <div className="flex flex-col gap-4">
           <Link href="/" className="flex items-center gap-2 group">
             <div className="w-12 h-12 relative overflow-hidden rounded-lg group-hover:scale-110 transition-transform bg-white">
-              <Image src="/logo.jpg" alt="MBPE Logo" fill className="object-contain" />
+              <Image src="/mbplogo.png" alt="MBPE Logo" fill className="object-contain" />
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-xl tracking-tight leading-none text-white">MBPE</span>

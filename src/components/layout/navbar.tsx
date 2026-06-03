@@ -47,7 +47,7 @@ export function Navbar() {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-12 h-12 relative overflow-hidden rounded-lg group-hover:scale-110 transition-transform">
-            <Image src="/logo.jpg" alt="MBPE Logo" fill className="object-contain" priority />
+            <Image src="/mbplogo.png" alt="MBPE Logo" fill className="object-contain" priority />
           </div>
           <div className="flex flex-col">
             <span className="font-bold text-xl tracking-tight leading-none">MBPE</span>
