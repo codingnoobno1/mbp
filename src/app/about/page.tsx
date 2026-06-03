@@ -16,7 +16,7 @@ const founders = [
   },
   {
     name: "Mr. Yogesh Bakshi",
-    role: "Co-Founder & Operations Head",
+    role: "Founder & Operations Head",
     experience: "30 Years",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&h=200&auto=format&fit=crop",
     description: "Expert in mechanical and workshop progressions, ensuring perfection in on-site jobs and operational excellence."
