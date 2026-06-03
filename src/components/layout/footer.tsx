@@ -77,8 +77,8 @@ export function Footer() {
             <li className="flex items-start gap-3">
               <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
               <span className="text-sm opacity-70">
-                MBPE Office, Industrial Area,<br />
-                Ambala, Haryana - 133001, India
+                26, HSIIDC, Sector-30, Industrial Estate,<br />
+                Phase II, Manakpur, Haryana 135003
               </span>
             </li>
             <li className="flex items-center gap-3">

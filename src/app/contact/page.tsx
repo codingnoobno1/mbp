@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea"
 const contactInfo = [
   {
     title: "Our Location",
-    description: "MBPE Office, Industrial Area, Ambala, Haryana - 133001, India",
+    description: "26, HSIIDC, Sector-30, Industrial Estate, Phase II, Manakpur, Haryana 135003",
     icon: MapPin,
     color: "bg-blue-500/10 text-blue-600",
   },
@@ -169,11 +169,11 @@ export default function Contact() {
               <MapPin className="text-primary w-4 h-4" />
               Main Office HQ
             </h4>
-            <p className="text-xs text-muted-foreground mt-1">Industrial Area, Ambala, Haryana</p>
+            <p className="text-xs text-muted-foreground mt-1">HSIIDC, Sector-30, Manakpur, Haryana 135003</p>
           </div>
           <iframe
             title="MBPE Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.4357288764835!2d76.84066!3d30.34795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fb630d0716d05%3A0x239e0eb770777352!2sIndustrial%20Area%2C%20Ambala%2C%20Haryana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            src="https://maps.google.com/maps?q=26+HSIIDC+Sector+30+Industrial+Estate+Phase+II+Manakpur+Haryana+135003&output=embed"
             width="100%"
             height="500"
             style={{ border: "0" }}
