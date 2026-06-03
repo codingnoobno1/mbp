@@ -84,8 +84,8 @@ export function Footer() {
             <li className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-accent shrink-0" />
               <div className="flex flex-col text-sm opacity-70">
-                <span>+91 98960 70515 (Mr. Bakshi)</span>
-                <span>+91 98960 51370 (Mr. Singh)</span>
+                <span>+91 98960 70515 (Mr. Yogesh Bakshi)</span>
+                <span>+91 98960 51370 (Mr. S.P. Singh)</span>
               </div>
             </li>
             <li className="flex items-center gap-3">
