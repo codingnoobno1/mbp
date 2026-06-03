@@ -84,8 +84,8 @@ const stories = [
 ]
 
 const stats = [
-  { value: "48+", label: "Countries Served", icon: Building2 },
-  { value: "1200+", label: "Units Installed", icon: Factory },
+  { value: "41+", label: "Companies Served", icon: Building2 },
+  { value: "120+", label: "Units Served", icon: Factory },
   { value: "100%", label: "Safety Success", icon: CheckCircle },
 ]
 
