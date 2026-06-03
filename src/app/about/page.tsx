@@ -137,17 +137,18 @@ export default function About() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {founders.map((founder, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2 }}
+              className="h-full"
             >
-              <Card className="overflow-hidden border-none shadow-2xl relative group bg-card">
-                <CardContent className="p-0">
-                  <div className="flex flex-col md:grid md:grid-cols-5 gap-0">
-                    <div className="relative h-72 md:h-full md:col-span-2">
+              <Card className="overflow-hidden border-none shadow-2xl relative group bg-card h-full">
+                <CardContent className="p-0 h-full">
+                  <div className="flex flex-col md:grid md:grid-cols-5 gap-0 h-full">
+                    <div className="relative h-64 md:h-full md:col-span-2">
                       <Image 
                         src={founder.image} 
                         alt={founder.name} 
