@@ -32,7 +32,7 @@ export function Footer() {
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
         <div className="flex flex-col gap-4">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-12 h-12 relative overflow-hidden rounded-lg group-hover:scale-110 transition-transform bg-white">
+            <div className="w-20 h-20 relative overflow-hidden rounded-lg group-hover:scale-110 transition-transform bg-white">
               <Image src="/mbplogo.png" alt="MBPE Logo" fill className="object-contain" />
             </div>
             <div className="flex flex-col">
